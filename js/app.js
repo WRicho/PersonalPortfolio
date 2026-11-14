@@ -17,7 +17,7 @@
     heroTitle: $("#hero-title"), heroIntro: $("#hero-intro"),
     carousel: $("#carousel"), track: $("#track"), dots: $("#dots"),
     prev: $("#prev"), next: $("#next"), toggle: $("#toggle"),
-    search: $("#search"), count: $("#count"),
+    search: $("#search"), tags: $("#tags"), sort: $("#sort"), count: $("#count"),
     grid: $("#grid"), empty: $("#empty")
   };
 
@@ -110,17 +110,49 @@
   el.carousel.addEventListener("mouseleave", function () { if (!paused) startAutoplay(); });
   el.carousel.addEventListener("focusout", function () { if (!paused) startAutoplay(); });
 
-  /* ---------- project grid, search ---------- */
+  /* ---------- project grid: keyword buttons, sort, search ---------- */
+  var activeTag = null;
+  var filters = Array.isArray(site.filters) ? site.filters : [];
+
+  function renderTags() {
+    if (!filters.length) { el.tags.hidden = true; return; }
+    el.tags.innerHTML = ['<button class="tag-chip" type="button" data-all="1" aria-pressed="' + (activeTag === null) + '">All</button>']
+      .concat(filters.map(function (t) {
+        return '<button class="tag-chip" type="button" data-tag="' + esc(t) + '" aria-pressed="' + (activeTag === t) + '">' + esc(t) + "</button>";
+      })).join("");
+  }
+  el.tags.addEventListener("click", function (e) {
+    var chip = e.target.closest(".tag-chip");
+    if (!chip) return;
+    activeTag = chip.dataset.all || activeTag === chip.dataset.tag ? null : chip.dataset.tag;
+    renderTags();
+    renderGrid();
+  });
+
+  function time(p) {
+    var t = Date.parse(p.date || p.year || "");
+    return isNaN(t) ? 0 : t;
+  }
+  function sorted(list) {
+    var how = el.sort.value;
+    return list.slice().sort(function (a, b) {
+      if (how === "oldest") return time(a) - time(b);
+      if (how === "az") return String(a.title).localeCompare(String(b.title));
+      if (how === "za") return String(b.title).localeCompare(String(a.title));
+      return time(b) - time(a);
+    });
+  }
+
   function matches(p) {
     var q = el.search.value.trim().toLowerCase();
-    var inTag = true;
+    var inTag = !activeTag || (p.tags || []).some(function (t) { return t.toLowerCase() === activeTag.toLowerCase(); });
     var inText = !q || [p.title, p.summary, (p.tags || []).join(" ")]
       .some(function (s) { return String(s || "").toLowerCase().indexOf(q) !== -1; });
     return inTag && inText;
   }
 
   function renderGrid() {
-    var list = projects.filter(matches);
+    var list = sorted(projects.filter(matches));
     el.grid.innerHTML = list.map(function (p) {
       return '<article class="card" style="' + artStyle(p) + '">' +
         (p.featured ? '<span class="badge">Featured</span>' : "") +
@@ -143,8 +175,10 @@
       : "";
   }
   el.search.addEventListener("input", renderGrid);
+  el.sort.addEventListener("change", renderGrid);
 
   /* ---------- go ---------- */
   renderCarousel();
+  renderTags();
   renderGrid();
 })();

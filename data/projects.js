@@ -20,6 +20,7 @@
     imageAlt  short description of the image for screen readers (optional)
     tags      keywords for the card, the project page, and the filter buttons
     featured  true = also appears in the scrolling banner at the top
+    date      YYYY-MM-DD, used only for sorting (the year field is just for display)
     year      e.g. "2026" (optional)
 
   The order here is the order on the site: put newest projects first.
@@ -37,6 +38,7 @@ window.PROJECTS = [
     imageAlt: "",
     tags: ["HTML", "CSS", "JavaScript"],
     featured: true,
+    date: "2026-11-15",
     year: "November 2026"
   },
   {
@@ -45,8 +47,9 @@ window.PROJECTS = [
     summary: "A one-sentence summary of this project.",
     image: "",
     imageAlt: "",
-    tags: ["Keyword", "Keyword"],
+    tags: ["Arduino", "Mechatronics"],
     featured: true,
+    date: "2026-10-01",
     year: "2026"
   }
 ];

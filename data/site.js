@@ -6,6 +6,9 @@
 */
 
 window.SITE = {
+  // Filter buttons on the home page. A project shows under a button when its
+  // tags (in data/projects.js) include that exact word. Add, remove or rename freely.
+  filters: ["HTML", "Arduino", "Mechatronics", "Mechanical", "AI"],
   headline: "Engineering projects, from first sketch to working prototype.",
   intro: "A selection of my mechanical and mechatronics engineering work.",
   links: [

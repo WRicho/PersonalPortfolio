@@ -55,7 +55,7 @@ a { color: inherit; }
 }
 .skip-link {
   position: absolute; left: 12px; top: -48px; z-index: 100;
-  background: var(--gold); color: #1a1a1a; padding: 10px 16px; border-radius: 8px;
+  background: var(--gold); color: #1a1a1a; padding: 10px 16px; border-radius: 0;
   font-weight: 600; text-decoration: none; transition: top .15s;
 }
 .skip-link:focus { top: 12px; }
@@ -123,7 +123,7 @@ a { color: inherit; }
 
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18px; padding: 0 var(--gutter); }
 .icon-btn {
-  width: 38px; height: 38px; border-radius: 50%; background: transparent;
+  width: 38px; height: 38px; border-radius: 0; background: transparent;
   border: 1px solid var(--line); font-size: 18px; line-height: 1; transition: border-color .15s, color .15s;
 }
 .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
@@ -131,7 +131,7 @@ a { color: inherit; }
 .text-btn:hover { color: var(--ink); }
 .dots { display: flex; gap: 6px; }
 .dot { width: 22px; height: 22px; background: none; border: 0; display: grid; place-items: center; }
-.dot::before { content: ""; width: 6px; height: 6px; border-radius: 6px; background: rgba(255, 255, 255, .25); transition: all .2s; }
+.dot::before { content: ""; width: 6px; height: 6px; border-radius: 0; background: rgba(255, 255, 255, .25); transition: all .2s; }
 .dot[aria-current="true"]::before { width: 18px; background: var(--gold); }
 
 /* ---------- Projects section ---------- */
@@ -139,14 +139,20 @@ a { color: inherit; }
 .projects-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
 .projects h2 { font-family: var(--font-display); font-size: 30px; font-weight: 600; letter-spacing: -.3px; }
 .search input {
-  width: min(280px, 100%); padding: 11px 15px; border-radius: 9px;
+  width: min(280px, 100%); padding: 11px 15px; border-radius: 0;
   background: var(--bg-panel); border: 1px solid var(--card-line); color: var(--ink-on-paper); font-size: 14px;
 }
+.head-tools { display: flex; gap: 10px; flex-wrap: wrap; }
+.sort select {
+  padding: 11px 38px 11px 15px; border-radius: 0; font-size: 14px; cursor: pointer;
+  background: var(--bg-panel); border: 1px solid var(--card-line); color: var(--ink-on-paper);
+}
+.sort select:focus { outline: none; border-color: var(--rust); box-shadow: 0 0 0 3px rgba(240, 249, 245, .2); }
 .search input:focus { outline: none; border-color: var(--rust); box-shadow: 0 0 0 3px rgba(240, 249, 245, .2); }
 
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
 .tag-chip {
-  padding: 7px 13px; border-radius: 100px; background: var(--bg-panel); border: 1px solid var(--card-line);
+  padding: 7px 13px; border-radius: 0; background: var(--bg-panel); border: 1px solid var(--card-line);
   font-size: 11.5px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase; color: var(--ink-on-paper-dim);
   transition: border-color .15s, color .15s, background .15s;
 }
@@ -227,7 +233,7 @@ a.brand { text-decoration: none; color: inherit; }
 .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--card-line); }
 .prose th { font-weight: 600; }
 .prose pre { background: #043a28; color: #f2efe6; padding: 16px 18px; border-radius: 0; overflow-x: auto; font-size: 13.5px; line-height: 1.6; }
-.prose code { font-size: .92em; background: rgba(240, 249, 245, .1); padding: .1em .35em; border-radius: 4px; }
+.prose code { font-size: .92em; background: rgba(240, 249, 245, .1); padding: .1em .35em; border-radius: 0; }
 .prose pre code { background: none; padding: 0; }
 .prose blockquote { border-left: 3px solid var(--gold); padding-left: 16px; color: var(--ink-on-paper-dim); }
 
@@ -241,7 +247,7 @@ a.brand { text-decoration: none; color: inherit; }
 
 .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2em; }
 .btn {
-  display: inline-block; padding: 11px 18px; border-radius: 9px; font-size: 14px; font-weight: 600; text-decoration: none;
+  display: inline-block; padding: 11px 18px; border-radius: 0; font-size: 14px; font-weight: 600; text-decoration: none;
   background: var(--ink-on-paper); color: #043a28; transition: opacity .15s;
 }
 .prose a.btn { color: #043a28; }

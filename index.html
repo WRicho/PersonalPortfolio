@@ -44,11 +44,24 @@
       <div class="wrap">
         <div class="projects-head">
           <h2 id="projects-title">All projects</h2>
-          <label class="search">
-            <span class="visually-hidden">Search projects</span>
-            <input type="search" id="search" placeholder="Search projects" autocomplete="off">
-          </label>
+          <div class="head-tools">
+            <label class="sort">
+              <span class="visually-hidden">Sort projects</span>
+              <select id="sort">
+                <option value="newest">Sort: Newest first</option>
+                <option value="oldest">Sort: Oldest first</option>
+                <option value="az">Sort: A to Z</option>
+                <option value="za">Sort: Z to A</option>
+              </select>
+            </label>
+            <label class="search">
+              <span class="visually-hidden">Search projects</span>
+              <input type="search" id="search" placeholder="Search projects" autocomplete="off">
+            </label>
+          </div>
         </div>
+
+        <div class="tags" id="tags" role="group" aria-label="Filter by keyword"></div>
         <p class="result-count" id="count" aria-live="polite"></p>
 
         <div class="grid" id="grid"></div>
