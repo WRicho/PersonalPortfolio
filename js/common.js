@@ -11,10 +11,10 @@
     });
   }
 
-  // Muted cover colours, picked consistently per project from its id.
+  // Cutting-mat green cover colours, picked consistently per project from its id.
   var ART = [
-    ["#2b3040", "#181a22"], ["#2f3a35", "#161c1a"], ["#3a2f28", "#1c1712"],
-    ["#332b3a", "#181420"], ["#2b3a36", "#141f1c"], ["#3a2b30", "#201317"]
+    ["#136b5f", "#062f2b"], ["#0e5a50", "#04201d"], ["#1b8576", "#08403a"],
+    ["#177268", "#06332e"], ["#2a9d8c", "#0a443d"], ["#0f5f57", "#04201d"]
   ];
   function artStyle(project) {
     var seed = String(project.id || project.title || "");

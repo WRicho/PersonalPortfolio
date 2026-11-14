@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g fill="none" stroke="rgba(232,242,238,0.15)" stroke-width="1">
+    <path opacity=".6" d="M0 800L1200 0M0 800L1000 0M0 800L800 0M0 800L600 0M0 800L400 0M0 800L200 0M0 800L1200 200M0 800L1200 400M0 800L1200 600"/>
+    <circle cx="0" cy="800" r="260"/><circle cx="0" cy="800" r="420"/><circle cx="0" cy="800" r="600"/><circle cx="0" cy="800" r="820"/><circle cx="0" cy="800" r="1040"/>
+    <g transform="translate(760 330)"><circle r="20"/><circle r="45"/><circle r="75"/><circle r="110"/><circle r="150"/><circle r="195" stroke-dasharray="2 8"/><path opacity=".6" d="M-210 0H210M0-210V210"/></g>
+    <g transform="translate(1060 120)"><circle r="14"/><circle r="34"/><circle r="58"/><circle r="86" stroke-dasharray="2 6"/></g>
+    <g transform="translate(930 230)"><circle r="10"/><circle r="26"/><circle r="44"/></g>
+    <g transform="translate(1110 290)"><circle r="12"/><circle r="30"/><circle r="52"/></g>
+    <g transform="translate(240 150)"><circle r="12"/><circle r="30"/><circle r="52"/><circle r="78" stroke-dasharray="2 6"/></g>
+    <g transform="translate(110 70)"><circle r="8"/><circle r="22"/><circle r="38"/></g>
+    <g transform="translate(1200 800)"><circle r="180"/><circle r="300"/><circle r="440"/><circle r="600" stroke-dasharray="2 8"/>
+      <path opacity=".6" d="M0 0L-600-120M0 0L-600-300M0 0L-520-440M0 0L-380-560M0 0L-200-620"/></g>
+    <path d="M480 110L545 230H415Z"/><path opacity=".5" d="M480 110V230"/>
+    <path stroke-dasharray="1 9" d="M0 24H1200M24 0V800"/>
+  </g>
+</svg>

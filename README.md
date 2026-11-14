@@ -7,7 +7,8 @@ nothing to install. Hosted free on GitHub Pages.
 
 ```
 index.html                 home page: banner, project cards, filters
-css/style.css              all the styling
+css/style.css              all the styling (colours are the variables at the top)
+css/mat.svg                the circular cutting-mat background pattern
 js/                        the code that draws the pages (you rarely edit this)
 data/site.js               headline, intro line, contact links
 data/projects.js           the LIST of projects (feeds the banner and cards)

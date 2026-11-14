@@ -125,14 +125,14 @@
   }
 
   function renderTags() {
-    el.tags.innerHTML = allTags().map(function (t) {
+    el.tags.innerHTML = '<button class="tag-chip" type="button" data-all="1" aria-pressed="' + (activeTag === null) + '">All</button>' + allTags().map(function (t) {
       return '<button class="tag-chip" type="button" data-tag="' + esc(t) + '" aria-pressed="' + (activeTag === t) + '">' + esc(t) + "</button>";
     }).join("");
   }
   el.tags.addEventListener("click", function (e) {
     var chip = e.target.closest(".tag-chip");
     if (!chip) return;
-    activeTag = activeTag === chip.dataset.tag ? null : chip.dataset.tag;
+    activeTag = chip.dataset.all || activeTag === chip.dataset.tag ? null : chip.dataset.tag;
     renderTags();
     renderGrid();
   });
