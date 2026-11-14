@@ -1,478 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WRicho — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#14161c;
-    --bg-panel:#1b1e26;
-    --line:rgba(255,255,255,0.09);
-    --ink:#f2efe6;
-    --ink-dim:#9a9cab;
-    --card:#f6f2e9;
-    --card-line:rgba(20,20,20,0.08);
-    --ink-on-card:#201f1c;
-    --ink-on-card-dim:#6c6a63;
-    --gold:#c9a24d;
-    --rust:#b1603f;
-    --font-display:'Fraunces', serif;
-    --font-body:'Inter', sans-serif;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg); color:var(--ink); font-family:var(--font-body);
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;}
-  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
-
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:26px 32px; max-width:1180px; margin:0 auto;
-  }
-  .nav-mark{font-family:var(--font-display); font-size:19px; font-weight:600; letter-spacing:.3px;}
-  .nav-link{font-size:13.5px; color:var(--ink-dim); text-decoration:none; transition:color .15s ease;}
-  .nav-link:hover{color:var(--ink);}
-
-  .hero{padding:8px 0 56px;}
-  .hero-head{max-width:1180px; margin:0 auto; padding:0 32px; margin-bottom:28px;}
-  .eyebrow{
-    font-size:11.5px; font-weight:600; letter-spacing:2.5px; color:var(--gold); text-transform:uppercase;
-    margin-bottom:14px; display:block;
-  }
-  .hero-head h1{
-    font-family:var(--font-display); font-weight:600; font-size:clamp(32px,4.2vw,52px);
-    line-height:1.08; letter-spacing:-.5px; max-width:640px;
-  }
-  .hero-head p{color:var(--ink-dim); font-size:15.5px; margin-top:14px; max-width:480px; line-height:1.6;}
-
-  .carousel-outer{position:relative;}
-  .carousel-track{
-    display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
-    padding:4px 32px 12px; scrollbar-width:none;
-  }
-  .carousel-track::-webkit-scrollbar{display:none;}
-  .feat-card{
-    scroll-snap-align:start; flex:0 0 auto; width:min(560px,82vw);
-    border-radius:18px; overflow:hidden; position:relative; cursor:pointer;
-    background:var(--bg-panel); border:1px solid var(--line);
-    transition:transform .3s cubic-bezier(.2,.8,.3,1);
-  }
-  .feat-card:hover{transform:translateY(-4px);}
-  .feat-art{
-    height:230px; position:relative; display:flex; align-items:flex-end; padding:22px;
-    background:linear-gradient(160deg, var(--art-a,#2b3040), var(--art-b,#181a22));
-  }
-  .feat-art img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .feat-art-overlay{position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%);}
-  .feat-monogram{
-    font-family:var(--font-display); font-size:72px; font-weight:600; color:rgba(255,255,255,0.14);
-    position:absolute; top:14px; right:20px;
-  }
-  .feat-label{position:relative; z-index:1; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:600;}
-  .feat-body{padding:20px 22px 24px;}
-  .feat-body h3{font-family:var(--font-display); font-size:21px; font-weight:600; margin-bottom:8px; letter-spacing:-.2px;}
-  .feat-body p{font-size:13.5px; color:var(--ink-dim); line-height:1.55;}
-
-  .carousel-nav{display:flex; align-items:center; justify-content:center; gap:16px; margin-top:18px;}
-  .carousel-btn{
-    width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:transparent;
-    color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
-    font-size:15px; transition:all .15s ease;
-  }
-  .carousel-btn:hover{border-color:var(--gold); color:var(--gold);}
-  .carousel-dots{display:flex; gap:7px;}
-  .dot{width:6px; height:6px; border-radius:50%; background:var(--line); transition:all .2s ease;}
-  .dot.active{background:var(--gold); width:18px; border-radius:4px;}
-
-  .section{background:var(--card); color:var(--ink-on-card); padding:56px 0 90px;}
-  .section-head{display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:30px;}
-  .section-head h2{font-family:var(--font-display); font-size:28px; font-weight:600; letter-spacing:-.3px;}
-  .search-box{
-    background:#fff; border:1px solid var(--card-line); border-radius:9px; padding:10px 15px;
-    font-family:var(--font-body); font-size:13.5px; color:var(--ink-on-card); outline:none; min-width:220px;
-    transition:border-color .15s ease;
-  }
-  .search-box:focus{border-color:var(--rust);}
-
-  .tag-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:30px;}
-  .tag-chip{
-    font-size:11.5px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--ink-on-card-dim);
-    background:#fff; border:1px solid var(--card-line); padding:7px 13px; border-radius:100px;
-    cursor:pointer; transition:all .15s ease; user-select:none;
-  }
-  .tag-chip:hover{border-color:var(--rust); color:var(--rust);}
-  .tag-chip.active{background:var(--rust); border-color:var(--rust); color:#fff;}
-
-  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr)); gap:22px;}
-  .card{
-    background:#fff; border-radius:14px; overflow:hidden; border:1px solid var(--card-line);
-    cursor:pointer; transition:transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .18s ease;
-    display:flex; flex-direction:column; position:relative;
-  }
-  .card:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(20,20,20,0.1);}
-  .card-art{
-    height:140px; position:relative; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(160deg, var(--art-a,#2b3040), var(--art-b,#181a22));
-    overflow:hidden;
-  }
-  .card-art img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .card-monogram{font-family:var(--font-display); font-size:44px; font-weight:600; color:rgba(255,255,255,0.5);}
-  .card-body{padding:16px 18px 18px; flex:1; display:flex; flex-direction:column; gap:9px;}
-  .card-title{font-family:var(--font-display); font-size:17px; font-weight:600; letter-spacing:-.1px;}
-  .card-desc{font-size:12.8px; color:var(--ink-on-card-dim); line-height:1.55; flex:1;}
-  .card-keywords{display:flex; gap:6px; flex-wrap:wrap;}
-  .keyword{
-    font-size:10px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; color:var(--ink-on-card-dim);
-    background:var(--card); padding:4px 9px; border-radius:5px;
-  }
-  .featured-badge{
-    position:absolute; top:10px; right:10px; font-size:9.5px; font-weight:700; letter-spacing:.8px;
-    text-transform:uppercase; background:var(--gold); color:#1a1a1a; padding:4px 9px; border-radius:5px; z-index:1;
-  }
-
-  .empty{grid-column:1/-1; text-align:center; padding:70px 20px; border:1px dashed var(--card-line); border-radius:14px;}
-  .empty h3{font-family:var(--font-display); font-size:19px; margin-bottom:8px;}
-  .empty p{color:var(--ink-on-card-dim); font-size:13.5px; max-width:360px; margin:0 auto 20px;}
-
-  footer{background:var(--bg); color:var(--ink-dim); text-align:center; padding:26px; font-size:12px;}
-
-  .modal-overlay{
-    position:fixed; inset:0; background:rgba(10,10,12,0.6); backdrop-filter:blur(3px);
-    display:flex; align-items:center; justify-content:center; padding:20px;
-    opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:60;
-  }
-  .modal-overlay.show{opacity:1; pointer-events:auto;}
-  .detail-modal{
-    background:var(--card); color:var(--ink-on-card); border-radius:18px; width:100%; max-width:560px;
-    max-height:88vh; overflow-y:auto; transform:scale(.96) translateY(8px); transition:transform .2s cubic-bezier(.2,.8,.3,1);
-  }
-  .modal-overlay.show .detail-modal{transform:scale(1) translateY(0);}
-  .detail-art{height:220px; position:relative; background:linear-gradient(160deg, var(--art-a,#2b3040), var(--art-b,#181a22));}
-  .detail-art img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .detail-close{
-    position:absolute; top:14px; right:14px; width:32px; height:32px; border-radius:50%;
-    background:rgba(0,0,0,0.5); color:#fff; border:none; cursor:pointer; font-size:16px;
-  }
-  .detail-body{padding:26px 28px 30px;}
-  .detail-body h2{font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:10px;}
-  .detail-desc{font-size:14px; line-height:1.7; color:var(--ink-on-card-dim); margin-bottom:20px; white-space:pre-wrap;}
-  .detail-keywords{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:22px;}
-  .detail-links{display:flex; gap:10px; flex-wrap:wrap;}
-  .detail-link{
-    font-size:13px; font-weight:600; text-decoration:none; padding:10px 16px; border-radius:9px;
-    background:var(--ink-on-card); color:#fff; transition:opacity .15s ease;
-  }
-  .detail-link:hover{opacity:.85;}
-  .detail-link.secondary{background:transparent; border:1px solid var(--card-line); color:var(--ink-on-card);}
-
-  @media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
-  @media (max-width:640px){
-    nav{padding:20px;}
-    .wrap, .hero-head, .carousel-track{padding-left:20px; padding-right:20px;}
-    .section-head{flex-direction:column; align-items:flex-start;}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WRicho — Mechanical &amp; Mechatronics Engineering</title>
+  <meta name="description" content="Portfolio of WRicho: mechanical and mechatronics engineering projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
 
-<nav>
-  <div class="nav-mark">WRicho</div>
-  <a class="nav-link" href="#work">Mechanical &amp; Mechatronics Engineering</a>
-</nav>
+  <header class="site-nav">
+    <div class="brand">WRicho</div>
+    <a class="nav-link" href="#projects">Mechanical &amp; Mechatronics Engineering</a>
+  </header>
 
-<section class="hero" id="hero-section">
-  <div class="hero-head">
-    <span class="eyebrow">Featured Work</span>
-    <h1 id="heroHeading">A few projects worth a closer look</h1>
-    <p id="heroSub">A closer look at what I've been building lately.</p>
-  </div>
-  <div class="carousel-outer">
-    <div class="carousel-track" id="carouselTrack"></div>
-    <div class="carousel-nav" id="carouselNav" style="display:none;">
-      <button class="carousel-btn" id="prevBtn">‹</button>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <button class="carousel-btn" id="nextBtn">›</button>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>All projects</h2>
-      <input type="text" class="search-box" id="search" placeholder="Search projects...">
-    </div>
-    <div class="tag-row" id="tagRow"></div>
-    <div class="grid" id="grid"></div>
-  </div>
-</section>
-
-<footer>Built with care.</footer>
-
-<div class="modal-overlay" id="detailOverlay">
-  <div class="detail-modal" id="detailModal"></div>
-</div>
-
-<script>
-/*
-  YOUR PROJECTS — this is the only place you need to edit to add, remove, or
-  change projects. This is the permanent source of truth for the page, so it
-  works no matter where you host the file (GitHub Pages, Netlify, your own
-  domain — anywhere). To publish a change: edit this list, commit, push.
-
-  Fields:
-    id        - any unique string, e.g. "inventory-dashboard"
-    title     - project name
-    summary   - one short sentence, shown on the card
-    desc      - longer write-up, shown when someone clicks in
-    image     - a URL to a cover image, or "" for a plain generated cover
-    status    - "shipped" | "progress" | "archived" (not shown publicly, for your own tracking)
-    tags      - array of keyword strings, e.g. ["React", "Python", "Data viz"]
-    repo      - link to source code, or ""
-    live      - link to a live demo, or ""
-    featured  - true to include it in the scrolling banner up top
-*/
-const PROJECTS_DATA = [
-  // {
-  //   id: "example-1",
-  //   title: "Inventory Dashboard",
-  //   summary: "A tool for tracking warehouse stock in real time.",
-  //   desc: "Longer description: what it does, how you built it, the impact it had.",
-  //   image: "",
-  //   status: "shipped",
-  //   tags: ["React", "Node.js", "PostgreSQL"],
-  //   repo: "https://github.com/yourname/inventory-dashboard",
-  //   live: "",
-  //   featured: true
-  // },
-];
-
-(function(){
-  const ART_PAIRS = [
-    ['#2b3040','#181a22'], ['#2f3a35','#161c1a'], ['#3a2f28','#1c1712'],
-    ['#332b3a','#181420'], ['#2b3a36','#141f1c'], ['#3a2b30','#201317']
-  ];
-
-  const projects = PROJECTS_DATA;
-  let activeTagFilter = null;
-  let carouselIndex = 0;
-  let autoplayTimer = null;
-
-  const grid = document.getElementById('grid');
-  const tagRow = document.getElementById('tagRow');
-  const search = document.getElementById('search');
-  const detailOverlay = document.getElementById('detailOverlay');
-  const detailModal = document.getElementById('detailModal');
-  const heroSection = document.getElementById('hero-section');
-  const carouselTrack = document.getElementById('carouselTrack');
-  const carouselNav = document.getElementById('carouselNav');
-  const carouselDots = document.getElementById('carouselDots');
-  const heroHeading = document.getElementById('heroHeading');
-  const heroSub = document.getElementById('heroSub');
-
-  function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-
-  function artPair(seed){
-    let h = 0;
-    for(let i=0;i<seed.length;i++) h = (h*31 + seed.charCodeAt(i)) >>> 0;
-    return ART_PAIRS[h % ART_PAIRS.length];
-  }
-
-  function cardArtHtml(p, size){
-    const [a,b] = artPair(p.id);
-    const style = `--art-a:${a};--art-b:${b}`;
-    if(p.image){
-      return {style, inner:`<img src="${escapeHtml(p.image)}" alt="">`};
-    }
-    return {style, inner:`<span class="${size==='lg'?'feat-monogram':'card-monogram'}">${escapeHtml((p.title||'?').charAt(0).toUpperCase())}</span>`};
-  }
-
-  function renderFeatured(){
-    const featured = projects.filter(p=>p.featured);
-    if(featured.length === 0){
-      heroSection.style.display = 'none';
-      return;
-    }
-    heroSection.style.display = 'block';
-
-    carouselTrack.innerHTML = featured.map(p=>{
-      const art = cardArtHtml(p, 'lg');
-      return `
-        <div class="feat-card" data-id="${p.id}" style="${art.style}">
-          <div class="feat-art">
-            ${art.inner}
-            <div class="feat-art-overlay"></div>
-            <span class="feat-label">Featured</span>
-          </div>
-          <div class="feat-body">
-            <h3>${escapeHtml(p.title)}</h3>
-            <p>${escapeHtml(p.summary||'')}</p>
-          </div>
-        </div>`;
-    }).join('');
-
-    carouselTrack.querySelectorAll('.feat-card').forEach(el=>{
-      el.addEventListener('click', ()=>openDetail(el.dataset.id));
-    });
-
-    if(featured.length > 1){
-      carouselNav.style.display = 'flex';
-      carouselDots.innerHTML = featured.map((_,i)=>`<div class="dot ${i===0?'active':''}" data-i="${i}"></div>`).join('');
-      carouselIndex = 0;
-      setupCarouselAutoplay(featured.length);
-    } else {
-      carouselNav.style.display = 'none';
-      clearInterval(autoplayTimer);
-    }
-  }
-
-  function scrollToCard(i){
-    const cards = carouselTrack.querySelectorAll('.feat-card');
-    if(!cards[i]) return;
-    carouselTrack.scrollTo({left: cards[i].offsetLeft - 32, behavior:'smooth'});
-    carouselDots.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active', idx===i));
-    carouselIndex = i;
-  }
-
-  function setupCarouselAutoplay(count){
-    clearInterval(autoplayTimer);
-    autoplayTimer = setInterval(()=>{
-      carouselIndex = (carouselIndex + 1) % count;
-      scrollToCard(carouselIndex);
-    }, 4200);
-  }
-
-  document.getElementById('prevBtn').addEventListener('click', ()=>{
-    const featured = projects.filter(p=>p.featured);
-    carouselIndex = (carouselIndex - 1 + featured.length) % featured.length;
-    scrollToCard(carouselIndex);
-  });
-  document.getElementById('nextBtn').addEventListener('click', ()=>{
-    const featured = projects.filter(p=>p.featured);
-    carouselIndex = (carouselIndex + 1) % featured.length;
-    scrollToCard(carouselIndex);
-  });
-  carouselTrack.addEventListener('mouseenter', ()=>clearInterval(autoplayTimer));
-  carouselTrack.addEventListener('mouseleave', ()=>{
-    const featured = projects.filter(p=>p.featured);
-    if(featured.length > 1) setupCarouselAutoplay(featured.length);
-  });
-  carouselDots.addEventListener('click', (e)=>{
-    if(e.target.classList.contains('dot')) scrollToCard(Number(e.target.dataset.i));
-  });
-
-  function allTags(){
-    const set = new Set();
-    projects.forEach(p => (p.tags||[]).forEach(t => set.add(t)));
-    return [...set].sort();
-  }
-
-  function renderTags(){
-    const tags = allTags();
-    if(tags.length === 0){ tagRow.innerHTML=''; return; }
-    tagRow.innerHTML = tags.map(t =>
-      `<span class="tag-chip ${activeTagFilter===t?'active':''}" data-tag="${escapeHtml(t)}">${escapeHtml(t)}</span>`
-    ).join('');
-    tagRow.querySelectorAll('.tag-chip').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        const t = el.dataset.tag;
-        activeTagFilter = activeTagFilter === t ? null : t;
-        render();
-      });
-    });
-  }
-
-  function render(){
-    renderFeatured();
-    renderTags();
-
-    const q = search.value.trim().toLowerCase();
-    let list = projects.filter(p=>{
-      const matchesQuery = !q ||
-        p.title.toLowerCase().includes(q) ||
-        (p.summary||'').toLowerCase().includes(q) ||
-        (p.tags||[]).some(t=>t.toLowerCase().includes(q));
-      const matchesTag = !activeTagFilter || (p.tags||[]).includes(activeTagFilter);
-      return matchesQuery && matchesTag;
-    });
-
-    if(projects.length === 0){
-      grid.innerHTML = `
-        <div class="empty">
-          <h3>No projects yet</h3>
-          <p>Add your first project by editing PROJECTS_DATA near the top of this file.</p>
-        </div>`;
-      return;
-    }
-    if(list.length === 0){
-      grid.innerHTML = `
-        <div class="empty">
-          <h3>Nothing matches</h3>
-          <p>Try a different search term or clear the filter.</p>
-        </div>`;
-      return;
-    }
-
-    grid.innerHTML = list.map(p=>{
-      const art = cardArtHtml(p, 'sm');
-      const kws = (p.tags||[]).slice(0,4).map(t=>`<span class="keyword">${escapeHtml(t)}</span>`).join('');
-      return `
-        <div class="card" data-id="${p.id}">
-          ${p.featured ? '<span class="featured-badge">Featured</span>' : ''}
-          <div class="card-art" style="${art.style}">${art.inner}</div>
-          <div class="card-body">
-            <div class="card-title">${escapeHtml(p.title)}</div>
-            <div class="card-desc">${escapeHtml(p.summary||'')}</div>
-            <div class="card-keywords">${kws}</div>
-          </div>
-        </div>`;
-    }).join('');
-
-    grid.querySelectorAll('.card').forEach(el=>{
-      el.addEventListener('click', ()=>openDetail(el.dataset.id));
-    });
-  }
-
-  function openDetail(id){
-    const p = projects.find(x=>x.id===id);
-    if(!p) return;
-    const art = cardArtHtml(p, 'lg');
-    const kws = (p.tags||[]).map(t=>`<span class="keyword">${escapeHtml(t)}</span>`).join('');
-    let linksHtml = '';
-    if(p.live) linksHtml += `<a class="detail-link" href="${escapeHtml(p.live)}" target="_blank" rel="noopener">View live</a>`;
-    if(p.repo) linksHtml += `<a class="detail-link secondary" href="${escapeHtml(p.repo)}" target="_blank" rel="noopener">View code</a>`;
-
-    detailModal.innerHTML = `
-      <div class="detail-art" style="${art.style}">
-        ${art.inner}
-        <button class="detail-close" id="detailClose">✕</button>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-head">
+        <span class="eyebrow">Featured work</span>
+        <h1 id="hero-title"></h1>
+        <p id="hero-intro"></p>
       </div>
-      <div class="detail-body">
-        <h2>${escapeHtml(p.title)}</h2>
-        <div class="detail-desc">${escapeHtml(p.desc || p.summary || '')}</div>
-        ${kws ? `<div class="detail-keywords">${kws}</div>` : ''}
-        ${linksHtml ? `<div class="detail-links">${linksHtml}</div>` : ''}
+
+      <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Featured projects" hidden>
+        <div class="carousel-track" id="track"></div>
+        <div class="carousel-controls">
+          <button class="icon-btn" id="prev" type="button" aria-label="Previous project">&#8249;</button>
+          <div class="dots" id="dots"></div>
+          <button class="icon-btn" id="next" type="button" aria-label="Next project">&#8250;</button>
+          <button class="text-btn" id="toggle" type="button">Pause</button>
+        </div>
       </div>
-    `;
-    detailOverlay.classList.add('show');
-    document.getElementById('detailClose').addEventListener('click', closeDetail);
-  }
-  function closeDetail(){ detailOverlay.classList.remove('show'); }
-  detailOverlay.addEventListener('click', (e)=>{ if(e.target===detailOverlay) closeDetail(); });
+    </section>
 
-  search.addEventListener('input', render);
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDetail(); });
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="projects-head">
+          <h2 id="projects-title">All projects</h2>
+          <label class="search">
+            <span class="visually-hidden">Search projects</span>
+            <input type="search" id="search" placeholder="Search projects" autocomplete="off">
+          </label>
+        </div>
 
-  render();
-})();
-</script>
+        <div class="tags" id="tags" role="group" aria-label="Filter by keyword"></div>
+        <p class="result-count" id="count" aria-live="polite"></p>
+
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" id="footer-links" aria-label="Contact"></nav>
+    <p>&copy; <span id="year"></span> WRicho</p>
+  </footer>
+
+  <!-- Data first, then the code that renders it -->
+  <script src="data/site.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

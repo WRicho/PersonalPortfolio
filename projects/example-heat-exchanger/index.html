@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project — WRicho</title>
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body data-project="example-heat-exchanger">
+  <header class="site-nav">
+    <a class="brand" href="../../index.html">WRicho</a>
+    <a class="nav-link" href="../../index.html#projects">&larr; All projects</a>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="wrap">
+        <span class="eyebrow" id="p-year"></span>
+        <h1 id="p-title"></h1>
+        <p class="lede" id="p-summary"></p>
+        <div class="keywords on-dark" id="p-tags"></div>
+      </div>
+      <div class="project-cover" id="p-cover" hidden></div>
+    </section>
+
+    <div class="project-body">
+      <article class="prose">
+
+        <!-- OPTIONAL: key facts box. Delete it if you don't want it. -->
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Your role</dd></div>
+          <div><dt>Tools</dt><dd>What you used</dd></div>
+          <div><dt>Duration</dt><dd>e.g. 6 weeks</dd></div>
+        </dl>
+
+        <h2>Overview</h2>
+        <p>Placeholder text for the example heat exchanger analysis. Describe the system, the assumptions you made, and what you were trying to find out.</p>
+
+        <h2>What I did</h2>
+        <p>How you approached it: the design decisions, methods and tools, and any
+        calculations or testing. Use <code>code</code> for code or part names.</p>
+        <ul>
+          <li>Bullet points work for lists of steps or features.</li>
+          <li>Keep each one short.</li>
+        </ul>
+
+        <!-- Images: put the file in this project's folder and use its name here.
+             Always fill in alt (a short description for screen readers). -->
+        <!--
+        <figure>
+          <img src="my-photo.png" alt="Short description of the image">
+          <figcaption>Optional caption.</figcaption>
+        </figure>
+        -->
+
+        <h2>Results</h2>
+        <p>What happened? Numbers, outcomes and lessons learned are what make a
+        project convincing.</p>
+
+        <!-- OPTIONAL: buttons to the code, a report, a demo video, etc.
+             Delete this block if there's nothing to link to. -->
+        <div class="project-links">
+          <a class="btn" href="https://github.com/" target="_blank" rel="noopener">View code</a>
+          <a class="btn secondary" href="https://example.com/" target="_blank" rel="noopener">Read the report</a>
+        </div>
+
+        <div class="page-end">
+          <a class="btn secondary" href="../../index.html#projects">&larr; Back to all projects</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" id="footer-links" aria-label="Contact"></nav>
+    <p>&copy; <span id="year"></span> WRicho</p>
+  </footer>
+
+  <script src="../../data/site.js"></script>
+  <script src="../../data/projects.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/project.js"></script>
+</body>
+</html>
