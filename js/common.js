@@ -13,8 +13,8 @@
 
   // Cutting-mat green cover colours, picked consistently per project from its id.
   var ART = [
-    ["#136b5f", "#062f2b"], ["#0e5a50", "#04201d"], ["#1b8576", "#08403a"],
-    ["#177268", "#06332e"], ["#2a9d8c", "#0a443d"], ["#0f5f57", "#04201d"]
+    ["#0b7a52", "#043a28"], ["#064d34", "#032e1f"], ["#1aa672", "#0b7a52"],
+    ["#0a6a47", "#032e1f"], ["#0b7a52", "#064d34"], ["#1aa672", "#043a28"]
   ];
   function artStyle(project) {
     var seed = String(project.id || project.title || "");

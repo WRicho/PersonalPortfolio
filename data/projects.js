@@ -24,39 +24,29 @@
 
   The order here is the order on the site: put newest projects first.
 
-  The three projects below are EXAMPLES. Replace or delete them (and their
-  folders in projects/) before you publish.
+  The two projects below are placeholders. Replace their text, or delete them
+  (and their folders in projects/) before you publish.
 */
 
 window.PROJECTS = [
   {
-    id: "example-line-follower",
-    title: "Example: Line-Following Robot",
-    summary: "Replace me with a one-sentence summary of your project.",
+    id: "project-one",
+    title: "The website",
+    summary: "How this portfolio website is built, how it looks, and how to add to it.",
     image: "",
     imageAlt: "",
-    tags: ["Arduino", "Control Systems", "C++"],
+    tags: ["HTML", "CSS", "JavaScript"],
     featured: true,
-    year: "2026"
+    year: "November 2026"
   },
   {
-    id: "example-heat-exchanger",
-    title: "Example: Heat Exchanger Analysis",
-    summary: "Replace me with a one-sentence summary of your project.",
+    id: "project-two",
+    title: "Project two",
+    summary: "A one-sentence summary of this project.",
     image: "",
     imageAlt: "",
-    tags: ["Thermofluids", "MATLAB", "CAD"],
+    tags: ["Keyword", "Keyword"],
     featured: true,
     year: "2026"
-  },
-  {
-    id: "example-embedded-device",
-    title: "Example: Embedded Sensor Node",
-    summary: "Replace me with a one-sentence summary of your project.",
-    image: "",
-    imageAlt: "",
-    tags: ["ESP32", "Embedded Systems", "Electronics"],
-    featured: false,
-    year: "2025"
   }
 ];

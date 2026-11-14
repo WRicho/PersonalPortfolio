@@ -17,7 +17,7 @@
     heroTitle: $("#hero-title"), heroIntro: $("#hero-intro"),
     carousel: $("#carousel"), track: $("#track"), dots: $("#dots"),
     prev: $("#prev"), next: $("#next"), toggle: $("#toggle"),
-    search: $("#search"), tags: $("#tags"), count: $("#count"),
+    search: $("#search"), count: $("#count"),
     grid: $("#grid"), empty: $("#empty")
   };
 
@@ -110,36 +110,10 @@
   el.carousel.addEventListener("mouseleave", function () { if (!paused) startAutoplay(); });
   el.carousel.addEventListener("focusout", function () { if (!paused) startAutoplay(); });
 
-  /* ---------- project grid, search, keyword filter ---------- */
-  var activeTag = null;
-
-  function allTags() {
-    var seen = new Map();
-    projects.forEach(function (p) {
-      (p.tags || []).forEach(function (t) {
-        var key = t.toLowerCase();
-        if (!seen.has(key)) seen.set(key, t);
-      });
-    });
-    return Array.from(seen.values()).sort(function (a, b) { return a.localeCompare(b); });
-  }
-
-  function renderTags() {
-    el.tags.innerHTML = '<button class="tag-chip" type="button" data-all="1" aria-pressed="' + (activeTag === null) + '">All</button>' + allTags().map(function (t) {
-      return '<button class="tag-chip" type="button" data-tag="' + esc(t) + '" aria-pressed="' + (activeTag === t) + '">' + esc(t) + "</button>";
-    }).join("");
-  }
-  el.tags.addEventListener("click", function (e) {
-    var chip = e.target.closest(".tag-chip");
-    if (!chip) return;
-    activeTag = chip.dataset.all || activeTag === chip.dataset.tag ? null : chip.dataset.tag;
-    renderTags();
-    renderGrid();
-  });
-
+  /* ---------- project grid, search ---------- */
   function matches(p) {
     var q = el.search.value.trim().toLowerCase();
-    var inTag = !activeTag || (p.tags || []).some(function (t) { return t.toLowerCase() === activeTag.toLowerCase(); });
+    var inTag = true;
     var inText = !q || [p.title, p.summary, (p.tags || []).join(" ")]
       .some(function (s) { return String(s || "").toLowerCase().indexOf(q) !== -1; });
     return inTag && inText;
@@ -172,6 +146,5 @@
 
   /* ---------- go ---------- */
   renderCarousel();
-  renderTags();
   renderGrid();
 })();

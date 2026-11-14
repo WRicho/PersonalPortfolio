@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The website — WRicho</title>
+  <meta name="description" content="How this portfolio website is built and designed.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="sheet">
+  <header class="site-nav">
+    <a class="brand" href="../index.html">WRicho</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="nav-link" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../website/index.html">Website</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="wrap">
+        <span class="eyebrow">About this site</span>
+        <h1>The website</h1>
+        <p class="lede">How this portfolio is built, how it looks, and how to add to it.</p>
+      </div>
+    </section>
+
+    <div class="project-body">
+      <article class="prose">
+        <dl class="facts">
+          <div><dt>Built with</dt><dd>HTML, CSS, JavaScript</dd></div>
+          <div><dt>Hosting</dt><dd>GitHub Pages</dd></div>
+          <div><dt>Build step</dt><dd>None</dd></div>
+        </dl>
+
+        <h2>Overview</h2>
+        <p>This is a static website. Every page is plain HTML styled by one stylesheet, and the home page is filled in by a small script from a list of projects. There is nothing to install or compile.</p>
+
+        <h2>Design</h2>
+        <p>The look is based on a self-healing cutting mat: emerald green, white measurement markings, and circular guides. The mat pattern sits behind every page. Project pages show their content on a white sheet so the pattern frames the writing without distracting from it.</p>
+        <div class="swatches"><div style="background:#0b7a52;color:#fff"><b>Base</b>#0B7A52</div><div style="background:#064d34;color:#fff"><b>Deep</b>#064D34</div><div style="background:#1aa672;color:#043a28"><b>Bright</b>#1AA672</div><div style="background:#a8e4cb;color:#043a28"><b>Mint</b>#A8E4CB</div><div style="background:#f0f9f5;color:#043a28"><b>White</b>#F0F9F5</div></div>
+
+        <h2>How it is organised</h2>
+        <ul>
+          <li><code>index.html</code> is the home page: featured banner and project list.</li>
+          <li><code>data/projects.js</code> is the list of projects shown on the home page.</li>
+          <li><code>projects/</code> holds one folder per project, each with its own page.</li>
+          <li><code>css/style.css</code> holds all the styling, and <code>css/mat.svg</code> is the background pattern.</li>
+          <li><code>website/</code> is this page.</li>
+        </ul>
+
+        <h2>Adding a project</h2>
+        <p>Copy <code>projects/_template</code>, rename the copy, write the page, then add an entry to <code>data/projects.js</code> with the same id. The README has the full steps.</p>
+
+        <div class="page-end">
+          <a class="btn secondary" href="../index.html">&larr; Back to home</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" id="footer-links" aria-label="Contact"></nav>
+    <p>&copy; <span id="year"></span> WRicho</p>
+  </footer>
+
+  <script src="../data/site.js"></script>
+  <script src="../js/common.js"></script>
+  <script>window.Portfolio.renderFooter();</script>
+</body>
+</html>

@@ -13,9 +13,12 @@
 <body>
   <a class="skip-link" href="#projects">Skip to projects</a>
 
-  <header class="site-nav">
-    <div class="brand">WRicho</div>
-    <a class="nav-link" href="#projects">Projects</a>
+<header class="site-nav">
+    <a class="brand" href="index.html">WRicho</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="nav-link" href="index.html#projects">Projects</a>
+      <a class="nav-link" href="about/index.html">About</a>
+    </nav>
   </header>
 
   <main>
@@ -46,8 +49,6 @@
             <input type="search" id="search" placeholder="Search projects" autocomplete="off">
           </label>
         </div>
-
-        <div class="tags" id="tags" role="group" aria-label="Filter by keyword"></div>
         <p class="result-count" id="count" aria-live="polite"></p>
 
         <div class="grid" id="grid"></div>

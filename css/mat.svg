@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-  <g fill="none" stroke="rgba(232,242,238,0.15)" stroke-width="1">
+  <g fill="none" stroke="rgba(240,249,245,0.15)" stroke-width="1">
     <path opacity=".6" d="M0 800L1200 0M0 800L1000 0M0 800L800 0M0 800L600 0M0 800L400 0M0 800L200 0M0 800L1200 200M0 800L1200 400M0 800L1200 600"/>
     <circle cx="0" cy="800" r="260"/><circle cx="0" cy="800" r="420"/><circle cx="0" cy="800" r="600"/><circle cx="0" cy="800" r="820"/><circle cx="0" cy="800" r="1040"/>
     <g transform="translate(760 330)"><circle r="20"/><circle r="45"/><circle r="75"/><circle r="110"/><circle r="150"/><circle r="195" stroke-dasharray="2 8"/><path opacity=".6" d="M-210 0H210M0-210V210"/></g>

@@ -14,8 +14,9 @@ data/site.js               headline, intro line, contact links
 data/projects.js           the LIST of projects (feeds the banner and cards)
 projects/
   _template/index.html     copy this to start a new project
-  line-follower/index.html one folder + index.html per project = its own page
-  ...
+  project-one/index.html   (the website write-up) one folder + index.html per project = its own page
+  project-two/index.html
+about/index.html           the About page
 images/                    site-wide images (project images can live in their own folder)
 ```
 
@@ -27,10 +28,10 @@ the projects so they show up on the home page.
 
 1. **Copy the template.** Copy the folder `projects/_template` and rename the
    copy to the project's id: lowercase, hyphens, no spaces
-   (e.g. `projects/line-follower`).
+   (e.g. `projects/my-project`).
 2. **Point the page at itself.** Open the new `index.html` and change
    `data-project="CHANGE-ME"` on the `<body>` tag to the same id
-   (`data-project="line-follower"`).
+   (`data-project="my-project"`).
 3. **Write the project.** Edit the section inside `<article class="prose">`.
    The comments in the template show the building blocks (headings,
    paragraphs, lists, images, a key-facts box, link buttons).
@@ -47,12 +48,12 @@ write that information once.
 ### Images
 
 Keep a project's images in its own folder, next to its `index.html`
-(e.g. `projects/line-follower/rig.png`).
+(e.g. `projects/my-project/rig.png`).
 
 - **In the write-up**, use just the file name:
   `<img src="rig.png" alt="Short description">`
 - **As the cover image**, set `image` in `data/projects.js` with the path from
-  the site root: `image: "projects/line-follower/cover.png"`. The cover shows
+  the site root: `image: "projects/my-project/cover.png"`. The cover shows
   on the home page and at the top of the project page. With no `image`, an
   automatic coloured cover is used on the home page and none on the project page.
 
