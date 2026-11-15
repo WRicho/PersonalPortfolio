@@ -17,6 +17,7 @@
     <nav class="nav-links" aria-label="Main">
       <a class="nav-link" href="../../index.html#projects">Projects</a>
       <a class="nav-link" href="../../about/index.html">About</a>
+    <a class="nav-link icon" href="https://github.com/WRicho" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
     </nav>
   </header>
 
@@ -40,10 +41,20 @@
         </dl>
 
         <h2>Overview</h2>
-        <p>This is a static website. Every page is plain HTML styled by one stylesheet, and the home page is filled in by a small script from a list of projects. There is nothing to install or compile.</p>
+        <p>I wanted to create a website to showcase my personal projects. The goal was to create a website that could function as an easy editable template for me and anyone who wanted to create a similar portfolio. I also wanted to experiment with AI since I tend not to use it in my main projects as it distracts from the learning, but I still want to practice using AI as a tool as it evolves. HTML and CSS I've learned and am familiar with so I thought it would be a good relatively unimportant project to collaborate with AI with.</p>
+
+        <h2>Process</h2>
+        <p>I Started using Claude Sonnet 4.6 and gave it the prompt of creating a website that could had buttons where you could enter the project if you were me, then have a public facing page. the original design was a binging with Babish inspired page were all the projects are arranged like how he arranges his recipes on his website. It created this were the buttons didn't work and you couldn't add anything.</p>
+
+        <figure>
+          <img src="image-1.png" alt="The first version of the website: a cream page with a dark header, an All projects heading, a search box and a No projects yet message.">
+          <figcaption>Original website created with Claude 4.6</figcaption>
+        </figure>
+
+        <p>Eventually I came to the conclusion that it would be better to use GitHub pages when I learnt how it worked so switched to that approach after I was more familiar with Git and how to commit to GitHub. By the time I got around to working on the website again Claude had released Sonnet 5.5. Even using it in 'low' settings it was able to create multiple html files for each page way better than 4.6 did where each page worked seamlessly.</p>
 
         <h2>Design</h2>
-        <p>The look is based on a self-healing cutting mat: emerald green, white measurement markings, and circular guides. The mat pattern sits behind every page. Project pages show their content on a white sheet so the pattern frames the writing without distracting from it.</p>
+        <p>I gave it the new theme of a Designer Cutting Matt themed webpage and to take the tile format to present the projects. It was able to give me different swatch options which I picked, I asked to improve background from a grid to actual cutting matt shapes and remove rounded edges on tiles. I made it so the project pages are white with green borders, and tweaked the list to add a filter system in addition to search.</p>
         <div class="swatches"><div style="background:#0b7a52;color:#fff"><b>Base</b>#0B7A52</div><div style="background:#064d34;color:#fff"><b>Deep</b>#064D34</div><div style="background:#1aa672;color:#043a28"><b>Bright</b>#1AA672</div><div style="background:#a8e4cb;color:#043a28"><b>Mint</b>#A8E4CB</div><div style="background:#f0f9f5;color:#043a28"><b>White</b>#F0F9F5</div></div>
 
         <h2>How it is organised</h2>

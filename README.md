@@ -17,7 +17,6 @@ projects/
   project-one/index.html   (the website write-up) one folder + index.html per project = its own page
   project-two/index.html
 about/index.html           the About page
-images/                    site-wide images (project images can live in their own folder)
 ```
 
 Every project is a **folder inside `projects/` with its own `index.html`**.
@@ -66,9 +65,8 @@ Delete its `{ ... }` block from `data/projects.js` and delete its folder in
 
 ## Before you publish
 
-The three "Example" projects (and their folders in `projects/`) are
-placeholders. Delete them or replace them with real work, and fill in your
-links in `data/site.js`.
+"Project two" is a placeholder. Replace it with real work (or delete it and
+its folder in `projects/`), and fill in your links in `data/site.js`.
 
 ## Previewing locally
 

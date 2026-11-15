@@ -28,7 +28,7 @@
   var meta = document.querySelector('meta[name="description"]');
   if (meta) meta.setAttribute("content", project.summary || project.title);
 
-  $("#p-year").textContent = project.year || "Project";
+  $("#p-year").textContent = (project.year || "Project") + (project.status ? " · " + project.status.charAt(0).toUpperCase() + project.status.slice(1) : "");
   $("#p-title").textContent = project.title;
   $("#p-summary").textContent = project.summary || "";
   $("#p-tags").innerHTML = (project.tags || []).map(function (t) {

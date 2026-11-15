@@ -20,6 +20,7 @@
     imageAlt  short description of the image for screen readers (optional)
     tags      keywords for the card, the project page, and the filter buttons
     featured  true = also appears in the scrolling banner at the top
+    status    "ongoing" or "completed" (optional; shown on the card and used by the Ongoing / Completed buttons)
     date      YYYY-MM-DD, used only for sorting (the year field is just for display)
     year      e.g. "2026" (optional)
 
@@ -32,11 +33,12 @@
 window.PROJECTS = [
   {
     id: "project-one",
-    title: "The website",
-    summary: "How this portfolio website is built, how it looks, and how to add to it.",
-    image: "",
-    imageAlt: "",
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "Personal Portfolio Website",
+    summary: "Personal Portfolio using GitHub Pages to showcase projects & experiment with using AI as a tool.",
+    image: "projects/project-one/cover.svg",
+    imageAlt: "Simplified illustration of the portfolio website: a header, a heading and two project tiles on an emerald cutting mat.",
+    tags: ["HTML", "CSS", "JavaScript", "AI"],
+    status: "ongoing",
     featured: true,
     date: "2026-11-15",
     year: "November 2026"
@@ -48,6 +50,7 @@ window.PROJECTS = [
     image: "",
     imageAlt: "",
     tags: ["Arduino", "Mechatronics"],
+    status: "completed",
     featured: true,
     date: "2026-10-01",
     year: "2026"

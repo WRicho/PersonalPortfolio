@@ -145,7 +145,7 @@
 
   function matches(p) {
     var q = el.search.value.trim().toLowerCase();
-    var inTag = !activeTag || (p.tags || []).some(function (t) { return t.toLowerCase() === activeTag.toLowerCase(); });
+    var inTag = !activeTag || (p.tags || []).concat(p.status || []).some(function (t) { return t.toLowerCase() === activeTag.toLowerCase(); });
     var inText = !q || [p.title, p.summary, (p.tags || []).join(" ")]
       .some(function (s) { return String(s || "").toLowerCase().indexOf(q) !== -1; });
     return inTag && inText;
@@ -160,7 +160,7 @@
         '<div class="card-body">' +
           '<h3><a class="card-link" href="' + esc(pageUrl(p)) + '">' + esc(p.title) + "</a></h3>" +
           "<p>" + esc(p.summary) + "</p>" +
-          '<div class="keywords">' + (p.tags || []).slice(0, 4).map(function (t) { return '<span class="keyword">' + esc(t) + "</span>"; }).join("") + "</div>" +
+          '<div class="keywords">' + (p.status ? [p.status.charAt(0).toUpperCase() + p.status.slice(1)] : []).concat(p.tags || []).slice(0, 4).map(function (t) { return '<span class="keyword">' + esc(t) + "</span>"; }).join("") + "</div>" +
         "</div></article>";
     }).join("");
 

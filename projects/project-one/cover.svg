@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Simplified illustration of the portfolio website on a cutting mat">
+  <defs><clipPath id="page"><rect x="190" y="70" width="820" height="460"/></clipPath></defs>
+  <!-- mat -->
+  <rect width="1200" height="600" fill="#0b7a52"/>
+  <g fill="none" stroke="#f0f9f5" stroke-opacity=".28" stroke-width="2">
+    <g transform="translate(1010 150)"><circle r="30"/><circle r="64"/><circle r="104"/><circle r="150" stroke-dasharray="3 10"/></g>
+    <g transform="translate(0 600)"><circle r="170"/><circle r="280"/><circle r="400"/><circle r="530" stroke-dasharray="3 10"/></g>
+    <g transform="translate(120 90)"><circle r="18"/><circle r="40"/><circle r="66"/></g>
+    <g transform="translate(1110 520)"><circle r="22"/><circle r="50"/><circle r="84"/></g>
+    <path d="M0 600L420 0M0 600L700 0M0 600L1000 0" opacity=".6"/>
+    <path d="M820 40L880 150H760Z"/>
+  </g>
+  <!-- window -->
+  <rect x="206" y="86" width="820" height="460" fill="#032e1f" opacity=".5"/>
+  <rect x="190" y="70" width="820" height="460" fill="#064d34"/>
+  <g clip-path="url(#page)">
+    <!-- header -->
+    <rect x="190" y="70" width="820" height="58" fill="#032e1f"/>
+    <rect x="222" y="92" width="96" height="14" fill="#f0f9f5"/>
+    <rect x="800" y="86" width="86" height="28" fill="#f0f9f5"/>
+    <rect x="900" y="86" width="86" height="28" fill="#f0f9f5"/>
+    <!-- page pattern -->
+    <g fill="none" stroke="#f0f9f5" stroke-opacity=".2" stroke-width="2"><g transform="translate(900 200)"><circle r="40"/><circle r="80"/><circle r="124"/></g></g>
+    <!-- hero text -->
+    <rect x="222" y="158" width="430" height="22" fill="#f0f9f5"/>
+    <rect x="222" y="192" width="330" height="22" fill="#f0f9f5"/>
+    <rect x="222" y="232" width="250" height="10" fill="#a8e4cb"/>
+    <!-- tiles -->
+    <g>
+      <rect x="222" y="274" width="368" height="270" fill="#0a6a47" stroke="#a8e4cb" stroke-opacity=".5" stroke-width="2"/>
+      <rect x="224" y="276" width="364" height="116" fill="#1aa672"/>
+      <rect x="540" y="288" width="36" height="16" fill="#a8e4cb"/>
+      <rect x="244" y="414" width="190" height="14" fill="#f0f9f5"/>
+      <rect x="244" y="440" width="300" height="9" fill="#a8e4cb"/>
+      <rect x="244" y="460" width="240" height="9" fill="#a8e4cb"/>
+      <rect x="244" y="490" width="56" height="18" fill="#f0f9f5" opacity=".25"/>
+      <rect x="308" y="490" width="56" height="18" fill="#f0f9f5" opacity=".25"/>
+      <rect x="372" y="490" width="56" height="18" fill="#f0f9f5" opacity=".25"/>
+    </g>
+    <g>
+      <rect x="614" y="274" width="368" height="270" fill="#0a6a47" stroke="#a8e4cb" stroke-opacity=".5" stroke-width="2"/>
+      <rect x="616" y="276" width="364" height="116" fill="#0b7a52"/>
+      <rect x="636" y="414" width="160" height="14" fill="#f0f9f5"/>
+      <rect x="636" y="440" width="300" height="9" fill="#a8e4cb"/>
+      <rect x="636" y="460" width="210" height="9" fill="#a8e4cb"/>
+      <rect x="636" y="490" width="56" height="18" fill="#f0f9f5" opacity=".25"/>
+      <rect x="700" y="490" width="56" height="18" fill="#f0f9f5" opacity=".25"/>
+    </g>
+  </g>
+</svg>

@@ -37,7 +37,8 @@
     var img = project.image
       ? '<img src="' + esc(resolve(project.image, base)) + '" alt="' + esc(project.imageAlt || "") + '" loading="lazy">'
       : "";
-    return img + '<span class="monogram" aria-hidden="true">' + initial + "</span>";
+    // With a real image, skip the placeholder letter.
+    return project.image ? img : '<span class="monogram" aria-hidden="true">' + initial + "</span>";
   }
 
   // Contact links in the footer come from data/site.js. Empty urls are skipped.
