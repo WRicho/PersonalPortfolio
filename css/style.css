@@ -312,3 +312,4 @@ body.sheet .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20p
 body.sheet .figure-row figure { margin: 0; }
 body.sheet .figure-row img { width: 100%; }
 @media (max-width: 640px) { body.sheet .figure-row { grid-template-columns: 1fr; } }
+body.sheet .prose p.caption { font-size: 13px; color: var(--ink-dim); margin: -16px 0 28px; }

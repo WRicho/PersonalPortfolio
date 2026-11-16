@@ -8,7 +8,7 @@
 window.SITE = {
   // Filter buttons on the home page. A project shows under a button when its
   // tags or its status (in data/projects.js) match that word. Add, remove or rename freely.
-  filters: ["Ongoing", "Completed", "HTML", "Arduino", "Mechatronics", "Mechanical", "AI"],
+  filters: ["Ongoing", "Completed", "HTML", "Arduino", "Mechatronics", "Mechanical", "CAD", "AI"],
   headline: "Engineering projects, from first sketch to working prototype.",
   intro: "A selection of my mechanical and mechatronics engineering work.",
   links: [

@@ -59,15 +59,48 @@
         <div class="figure-row">
           <figure>
             <img src="sketch-obstacle-layer.jpg" alt="A hand-drawn sketch of the pinball playfield, labelled Obstacle Layer, with sensors, bumpers, ramps and two flippers.">
-            <figcaption>Obstacle layer sketch</figcaption>
           </figure>
           <figure>
             <img src="sketch-ideation.jpg" alt="A page of handwritten ideation notes listing available sensors above sketches of the outside box, the inclined frame and the playfield.">
-            <figcaption>Ideation notes: sensors and outer box</figcaption>
           </figure>
         </div>
+        <p class="caption">Very Rough Sketches!</p>
 
         <p>The initial design tries its best to incorporate as many elements as possible of the original game, but it just wasn't feasible to add this much so I heavily simplified it when I began the CAD. The sketches still demonstrate the structure, with a ramped incline, room for a breadboard, Arduino and buttons in housing below the pinball track. What was essential was understanding that the ball needs to move through a tunnel of some description for the IR sensor to reliably trip when the ball travels past it. The sketches helped me to work out where these paths would be. It also helped me get an idea of the scale it should be, where I estimated that the length of the base should be around 40cm.</p>
+
+        <h2>CAD</h2>
+        <p>This was my first time using SolidWorks for Laser cutting and finger joints. Whilst I have experience with finger joint laser cutting i used Adobe Illustrator in the past. Whilst Illustrator is easier for a beginner, it became clear quite quickly that using SolidWorks makes the process far easier as you can define equal, parallel and perpendicular relations easily and then create an assembly file where every overlap or incorrect finger joint is visible. In the past when making acrylic boxes with the finger joints I've had issues with lengths of joints being slightly too large, but being able to view it in 3D makes it very difficult to make this issue.</p>
+
+        <p>From this I was able to design how the ramp would slot into the sides, how the LCD would be mounted (Press Fit) and how I would access the circuitry, which I decided to add rounded cutouts to each side of the frame. I laser cut the frame out of 6mm plywood and using exact dimensions created a perfect press fit so I didn't need to re-cut anything and the first version was suitable for the final frame. Even the laser cut acrylic disk for the RBG LED disc was a perfect press fit.</p>
+
+        <div class="figure-row">
+          <figure>
+            <img src="cad-assembly.jpg" alt="A SolidWorks render of the assembled pinball frame in grey, showing the angled playfield with curved walls, bumpers, two flippers and rounded cutouts in the side panels.">
+          </figure>
+          <figure>
+            <img src="cad-exploded.jpg" alt="An exploded SolidWorks view of the pinball machine showing the finger-jointed side panels, the base, the playfield, the LCD cover plate and the two flippers separated.">
+          </figure>
+        </div>
+        <p class="caption">SolidWorks assembly and exploded view</p>
+
+        <p>However, what I forgot to make in my design was cutouts for the sensors I was going to use. To add them I ended up having to use a drill, hand saw and files to create the cutouts for these parts. Another later issue was the incline was slightly too much for the balls to roll all the way, so I had to slightly prop the front of the pinball case up when playing</p>
+
+        <h2>3D Printing</h2>
+        <p>Then I designed the servo bat to be 3D printed and slot onto the servo motor. I wanted to create a tight fit so I wouldn't have to use glue and ruin the servos, but this was practically impossible with the 3D printer I had available which was an UltiMaker printer that couldn't print clean layer lines or consistent tolerances. Even when I printed a tight fit, the PLA i had access to would often soften and lose its tight fit with use. I created a backup version of the bats which would fit onto a 28BYJ Stepper motor, but this wasn't a solution as the motor wasn't fast enough to hit the ball. The solution was to put the servo bats into boiling water, use pliers to crimp them onto the servos and then take them off and freeze them to set them as a really tight fit. Another issue I was having was finding a suitable pinball as metal pinballs would be too heavy; the solution was to 3D print some lightweight and small PLA balls that the servo could easily hit very far.</p>
+
+        <h2>Component Selection</h2>
+        <p>I decided to use SG90 servos since they came in the kit and purchasing another was relatively affordable compared to stronger servos. The issue with them was the speed at which they could hit the pinballs, but to rectify this I made super light pinballs out of PLA and that resolved the issue. Upgrading to a stronger servo wouldn't have worked because I was requiring speed not strength which better servos like an MG90 or MG995 couldn't solve.</p>
+
+        <p>I decided to use IR sensors because building a housing that would let the ultrasonic work was unfeasible. I tried to use a motion sensor by taking off the dome and using it as IR sensor to mixed success. I would've use Hall effect, but the balls were now plastic so it couldn't be used. I also considered using an LDR but couldn't get it to consistently recognise a ball rolling over it so I didn't use it in the end.</p>
+
+        <p>I found that the buttons that I had from my mechatronics kit which are just standard larger buttons were perfectly suitable, and I soldered them to wires that plugged into the breadboard to mount to the side of the frame.</p>
+
+        <p>I used Freenove's RGB LED pixel ring &amp; the LCD Screen to add animations, flashes when sensors were reached and keep time and score.</p>
+
+        <figure>
+          <img src="circuit-diagram.jpg" alt="A circuit diagram showing an Arduino Uno wired to a breadboard with two push buttons, two servo motors, proximity and PIR motion sensors, and an I2C LCD screen.">
+          <figcaption>Circuit diagram</figcaption>
+        </figure>
 
         <div class="page-end">
           <a class="btn secondary" href="../../index.html#projects">&larr; Back to all projects</a>

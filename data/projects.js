@@ -49,7 +49,7 @@ window.PROJECTS = [
     summary: "Working Mini pinball Machine to use mechatronics knowledge to create a working custom project.",
     image: "projects/project-two/cover.jpg",
     imageAlt: "The finished laser-cut plywood mini pinball machine with a blue LCD, a glowing LED ring and two flippers.",
-    tags: ["Arduino", "Mechatronics", "Mechanical"],
+    tags: ["Arduino", "Mechatronics", "CAD", "Mechanical"],
     status: "completed",
     featured: true,
     date: "2025-11-15",
