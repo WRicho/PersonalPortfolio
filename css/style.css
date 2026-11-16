@@ -313,3 +313,8 @@ body.sheet .figure-row figure { margin: 0; }
 body.sheet .figure-row img { width: 100%; }
 @media (max-width: 640px) { body.sheet .figure-row { grid-template-columns: 1fr; } }
 body.sheet .prose p.caption { font-size: 13px; color: var(--ink-dim); margin: -16px 0 28px; }
+body.sheet .figure-row.equal img { aspect-ratio: 5 / 4; object-fit: cover; }
+body.sheet .split { display: grid; grid-template-columns: 1fr minmax(240px, 340px); gap: 32px; align-items: start; }
+body.sheet .split figure { margin: 28px 0 0; }
+body.sheet .split img { width: 100%; }
+@media (max-width: 760px) { body.sheet .split { grid-template-columns: 1fr; } }
