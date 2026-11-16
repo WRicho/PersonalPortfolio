@@ -45,14 +45,14 @@ window.PROJECTS = [
   },
   {
     id: "project-two",
-    title: "Project two",
-    summary: "A one-sentence summary of this project.",
-    image: "",
-    imageAlt: "",
-    tags: ["Arduino", "Mechatronics"],
+    title: "Mini Pinball Machine",
+    summary: "Working Mini pinball Machine to use mechatronics knowledge to create a working custom project.",
+    image: "projects/project-two/cover.jpg",
+    imageAlt: "The finished laser-cut plywood mini pinball machine with a blue LCD, a glowing LED ring and two flippers.",
+    tags: ["Arduino", "Mechatronics", "Mechanical"],
     status: "completed",
     featured: true,
-    date: "2026-10-01",
-    year: "2026"
+    date: "2025-11-15",
+    year: "November 2025"
   }
 ];

@@ -305,3 +305,10 @@ body.sheet .prose figure img { border: 1px solid var(--line); }
 .projects .keyword { background: rgba(11, 122, 82, .09); color: var(--ink-on-paper); }
 .projects .search input:focus, .projects .sort select:focus { box-shadow: 0 0 0 3px rgba(11, 122, 82, .2); }
 .projects .card:hover { box-shadow: 0 10px 24px rgba(4, 58, 40, .18); }
+
+body.sheet .prose figure { margin: 28px 0; }
+body.sheet .prose figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-dim); }
+body.sheet .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0; align-items: start; }
+body.sheet .figure-row figure { margin: 0; }
+body.sheet .figure-row img { width: 100%; }
+@media (max-width: 640px) { body.sheet .figure-row { grid-template-columns: 1fr; } }
