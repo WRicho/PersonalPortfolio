@@ -42,8 +42,20 @@
           <div><dt>Software</dt><dd>SolidWorks, Arduino IDE</dd></div>
         </dl>
 
+        <p class="group-label">At a glance</p>
+
         <h2>Overview</h2>
         <p>Given the task of creating a mechatronics project that incorporated input, output and movement I decided to make a Pinball machine. I chose a pinball machine since I thought that it was a suitable challenge that had real difficulty in software such as timing and non-blocking code and I also wanted to learn to use the laser cutter with SolidWorks as my previous experience, I was using Adobe Illustrator with 2D files. It also offered the opportunity to 3D print parts which I hadn't been able to do since 2019 and had very little experience in. I knew these skills would be important to develop with the upcoming Warman challenge that I would do in 2026 so I used this project to learn these skills.</p>
+
+        <h2>How it works</h2>
+        <p>Press both buttons to start the game. A 120s countdown starts. Launch the pinballs onto the track and use the buttons on either side of the case to control each servo bat. Try and hit the different IR sensors to score points. Each IR sensor has different points and animations that are played. Once the 120s ends the game is over, the screen displays final points and both buttons need to be pressed to reset to the start game screen.</p>
+
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/vsMmaSzcKWk" title="Mini Pinball Machine gameplay video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="caption">Gameplay video</p>
+
+        <p class="group-label">Design and build</p>
 
         <h2>Inspiration</h2>
         <p>My inspiration is from space cadet pinball which was likely the first computer game I played when I was very young. When I finally found it after years of not knowing what it was except in a distant memory, I thought it would be a fun nostalgic opportunity to recreate it in a tabletop minigame.</p>
@@ -104,6 +116,8 @@
           <figcaption>Circuit diagram</figcaption>
         </figure>
 
+        <p class="group-label">Code and challenges</p>
+
         <h2>Animations</h2>
         <div class="split">
           <div>
@@ -122,17 +136,10 @@
 
         <p>The next challenge I faced was implementing non-blocking code. initially this wasn't an issue as I knew to avoid for and while loops and to use only if statements and initial testing with servos being pressed simultaneously worked perfectly fine. The challenge arose when adding the animations into the game when points were scored as my original animations were too complex and would create bugs were the animation would get stuck or not fully work. This mainly happened to the LED pixel, so i simplified their animations from the test file and everything behaved normally again.</p>
 
-        <h2>How it works</h2>
-        <p>Press both buttons to start the game. A 120s countdown starts. Launch the pinballs onto the track and use the buttons on either side of the case to control each servo bat. Try and hit the different IR sensors to score points. Each IR sensor has different points and animations that are played. Once the 120s ends the game is over, the screen displays final points and both buttons need to be pressed to reset to the start game screen.</p>
-
-        <div class="video">
-          <iframe src="https://www.youtube-nocookie.com/embed/vsMmaSzcKWk" title="Mini Pinball Machine gameplay video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <p class="caption">Gameplay video</p>
-
         <div class="page-end">
           <a class="btn secondary" href="../../index.html#projects">&larr; Back to all projects</a>
         </div>
+      
       </article>
     </div>
   </main>
@@ -146,5 +153,6 @@
   <script src="../../data/projects.js"></script>
   <script src="../../js/common.js"></script>
   <script src="../../js/project.js"></script>
+  <script src="../../js/toc.js"></script>
 </body>
 </html>
